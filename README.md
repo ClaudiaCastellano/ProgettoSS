@@ -1,5 +1,5 @@
 # ProgettoSS
-# 🧪 01 - OWASP NodeGoat ("AS IS")
+# 🧪 01 - OWASP NodeGoat 
 
 
 ## 🧩 Descrizione Generale
