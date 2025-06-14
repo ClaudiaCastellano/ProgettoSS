@@ -31,6 +31,8 @@ https.createServer(httpsOptions, app).listen(port, () => {
 💡 **Spiegazione**:
 - ✅ HTTPS protegge i dati in transito, evitando che informazioni sensibili vengano esposte a utenti non autorizzati attraverso intercettazioni.
 
+---
+
 ### profile-dao.js
 Nel file `profile-dao.js` le informazioni sensibili degli utenti sono salvate in plaintext:
 
@@ -218,7 +220,8 @@ module.exports = { ProfileDAO };
 
 - ✅ Quando i dati vengono letti, vengono decifrati tramite il metodo `decrypt()`. Questo impedisce che dati sensibili siano visibili in chiaro nel database o nelle query raw.
 
+![](../img/Mitigation/cypherData.png)
 
-
-[🔙](01-as-is.md#a6---sensitive-data-exposure)
+<!--[🔙](01-as-is.md#a6---sensitive-data-exposure)-->
+[🔙](../README.md#a6---sensitive-data-exposure)
 

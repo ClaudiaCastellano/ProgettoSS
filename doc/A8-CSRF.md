@@ -44,7 +44,15 @@ Nel file `server.js` si può includere il middleware express CSRF dopo aver inzi
 - ✅ inoltre genera un token CSRF valido per la sessione corrente, usando `req.csrfToken()` e lo salva in `res.locals.csrftoken`, così può essere facilmente usato nel template HTML:
 
 ```html
-<input type="hidden" name="_csrf" value="{{ csrftoken } }">
+<input type="hidden" name="_csrf" value="{{ csrftoken }}">
 ```
 
-[🔙](01-as-is.md#a8---cross-site-request-forgery-csrf)
+![](../img/Mitigation/csrfValido.png)
+
+---
+
+![](../img/Mitigation/CsrfNonValido.png)
+
+
+<!--[🔙](01-as-is.md#a8---cross-site-request-forgery-csrf)-->
+[🔙](../README.md#a8---cross-site-request-forgery-csrf)

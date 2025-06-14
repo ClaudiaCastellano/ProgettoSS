@@ -43,4 +43,5 @@ app.use(session({
 - ✅Imposta il flag HTTPOnly ai session cookie proteggendoli dall'accesso tramite JavaScript. 
 
 
-[🔙](01-as-is.md#a3---cross-site-scripting-xss)
+<!--[🔙](01-as-is.md#a3---cross-site-scripting-xss)-->
+[🔙](../README.md#a3---cross-site-scripting-xss)

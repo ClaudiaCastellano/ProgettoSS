@@ -36,4 +36,7 @@ this.isAdminUserMiddleware = (req, res, next) => {
 };
 ```
 
-[🔙](01-as-is.md#a7---missing-function-level-access-control)
+![](../img/Mitigation/redirectionToLoginIfNotAdmin.png)
+
+<!--[🔙](01-as-is.md#a7---missing-function-level-access-control)-->
+[🔙](../README.md#a7---missing-function-level-access-control)

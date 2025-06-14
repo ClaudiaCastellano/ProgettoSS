@@ -29,5 +29,7 @@ app.use(express.session({
 
 💡 **Spiegazione**:
 - ✅ Il nome di default del session cookie viene modificato impostando l'attributo key nel momento in cui si crea la sessione express.
+![](../img/Mitigation/sessionId(e_https).png)
 
-[🔙](01-as-is.md#a5---security-misconfiguration)
+<!--[🔙](01-as-is.md#a5---security-misconfiguration)-->
+[🔙](../README.md#a5---security-misconfiguration)

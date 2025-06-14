@@ -52,52 +52,22 @@ function ProfileDAO(db) {
         if (address) {
             user.address = address;
         }
+        // Fix for A6 - Sensitive Data Exposure
+        // Store encrypted bankAcc, bankRouting, ssn and DOB
         if (bankAcc) {
             user.bankAcc = encrypt(bankAcc);
         }
         if (bankRouting) {
             user.bankRouting = encrypt(bankRouting);
-        }/*
-        if (ssn) {
-            user.ssn = ssn;
         }
-        if (dob) {
-            user.dob = dob;
-        }*/
-        
-        /*
-        if (firstName) {
-            user.firstName = encrypt(firstName);
-        }
-        if (lastName) {
-            user.lastName = encrypt(lastName);
-        }
-        if (address) {
-            user.address = encrypt(address);
-        }
-        if (bankAcc) {
-            user.bankAcc = encrypt(bankAcc);
-        }
-        if (bankRouting) {
-            user.bankRouting = encrypt(bankRouting);
-        }*/
         if (ssn) {
             user.ssn = encrypt(ssn);
         }
         if (dob) {
             user.dob = encrypt(dob);
         }
-        /*
-        // Fix for A7 - Sensitive Data Exposure
-        // Store encrypted ssn and DOB
-        if(ssn) {
-            user.ssn = encrypt(ssn);
-        }
-        if(dob) {
-            user.dob = encrypt(dob);
-        }*/
         
-
+        
         users.update({
                 _id: parseInt(userId)
             }, {
@@ -121,20 +91,12 @@ function ProfileDAO(db) {
             (err, user) => {
                 if (err) return callback(err, null);
 
-                /*user.firstName = user.firstName ? decrypt(user.firstName) : "";
-                user.lastName = user.lastName ? decrypt(user.lastName) : "";
-                user.address = user.address ? decrypt(user.address) : "";*/
+                // Fix for A6 - Sensitive Data Exposure
+                // Decrypt bankAcc, bankRouting, ssn and DOB values to display to user
                 user.bankAcc = user.bankAcc ? decrypt(user.bankAcc) : "";
                 user.bankRouting = user.bankRouting ? decrypt(user.bankRouting) : "";
                 user.ssn = user.ssn ? decrypt(user.ssn) : "";
                 user.dob = user.dob ? decrypt(user.dob) : "";
-
-                /*
-                // Fix for A6 - Sensitive Data Exposure
-                // Decrypt ssn and DOB values to display to user
-                user.ssn = user.ssn ? decrypt(user.ssn) : "";
-                user.dob = user.dob ? decrypt(user.dob) : "";
-                */
 
                 callback(null, user);
             }

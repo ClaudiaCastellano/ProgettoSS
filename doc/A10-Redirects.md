@@ -32,4 +32,7 @@ app.get("/learn", isLoggedIn, (req, res) => {
 💡 **Spiegazione**:
 - ✅ in questo modo la rotta `/learn` esegue un reindirizzamento sempre verso lo stesso sito trusted di default. Gli utenti non possono modificare questo comportamento.
 
-[🔙](01-as-is.md#a10---unvalidated-redirects-and-forwards)
+![](../img/Mitigation/redirect.png)
+
+<!--[🔙](01-as-is.md#a10---unvalidated-redirects-and-forwards)-->
+[🔙](../README.md#a10---unvalidated-redirects-and-forwards)

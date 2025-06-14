@@ -34,6 +34,7 @@ dopo essere riuscito a visualizzare tutti i file presenti nella directory corren
 
 - `res.end(...)` : termina la risposta HTTP e invia il contenuto del file come corpo della risposta.
 
+---
 ### Denial of Service Attack
 
 Questa stessa vulnerabilità può essere usata da un attaccante anche per eseguire un attacco DoS. Infatti, inserendo nel campo del form la stringa `process.kill(process.pid)`, il processo che esegue il server viene ucciso rendendo il servizio non più disponibile. 
@@ -48,6 +49,10 @@ var roth = parseInt(req.body.roth);
 - ❌ `eval()` è pericoloso perché esegue qualsiasi codice JavaScript passato come stringa.
 
 - ✅ `parseInt()` è più sicuro perché interpreta solo numeri: se l’input è qualcosa di non numerico, il risultato sarà NaN.
+
+![](../img/Mitigation/parseInt(A1).png)
+
+---
 
 ##  A1 - 2 SQL and NoSQL Injection 
 SQL Injection e NoSQL Injection si verificano quando un attaccante inserisce dati malevoli in input non filtrati per manipolare query o comandi del database, compromettendo sicurezza e integrità dei dati.
@@ -125,8 +130,10 @@ const searchCriteria = () => {
 };
 ```
 💡 **Spiegazione**:
-- ✅ **Sanitizza l’input**: usa `parseInt(threshold, 10)` per convertire threshold in un numero intero usando la base 10. Se l’input è malevolo (es. "1'; return 1 == '1"), `parseInt` restituisce solo il numero iniziale (1) e ignora il resto, impedendo l'iniezione di codice.
+- ✅ **Sanitizza l’input**: usa `parseInt(threshold, 10)` per convertire threshold in un numero intero usando la base 10. Se l’input è malevolo (es. "1'; return 1 == '1") impedisce l'iniezione di codice.
 - ✅ **Valida il range**: accetta solo valori tra 0 e 99. Se l’input è fuori da questo intervallo (o non è un numero), lancia un errore e non costruisce nessuna query pericolosa.
 
+![](../img/Mitigation/sqlInjection(A2).png)
 
-[🔙](01-as-is.md#a1---injection)
+<!--[🔙](01-as-is.md#a1---injection)-->
+[🔙](../README.md#a1---injection)

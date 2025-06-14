@@ -43,4 +43,8 @@ this.displayAllocations = (req, res, next) => {
 💡 **Spiegazione**:
 - ✅ in questo modo le allocazioni sono recuperate a partire dall'id della sessione e non dal parametro dell'url
 
-[🔙](01-as-is.md#a4---insecure-direct-object-references)
+accesso eseguito con pippo (id = 4). Quando si inserisce nell'url un altro id, restituisce comunque le allocazioni di pippo (perché prende l'id dalla sessione)
+![](../img/Mitigation/DOR.png)
+
+<!--[🔙](01-as-is.md#a4---insecure-direct-object-references)-->
+[🔙](../README.md#a4---insecure-direct-object-references)

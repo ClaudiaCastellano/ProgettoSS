@@ -33,5 +33,7 @@ Nella sezione `Memos`, infatti inserendo una stringa malevola `[I'm here!](javas
     - `allowedSchemes`: permette solo URL che iniziano con `http`, `https` o `mailto`.
         - Qualsiasi URL tipo javascript: viene rimosso.
 
+![](../img/Mitigation/marked.png)
 
-[🔙](01-as-is.md#a9---using-components-with-known-vulnerabilities)
+<!--[🔙](01-as-is.md#a9---using-components-with-known-vulnerabilities)-->
+[🔙](../README.md#a9---using-components-with-known-vulnerabilities)

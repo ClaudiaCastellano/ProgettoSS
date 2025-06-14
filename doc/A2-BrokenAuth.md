@@ -17,6 +17,9 @@ var user = {
 se un attaccante riesce ad avere accesso al database può leggere le password degli utenti.
 
 ![](../img/A2/A2-1.png)
+
+
+
 #### 🛡️ Mitigation
 ```js 
 // Generate password hash
@@ -42,6 +45,9 @@ if (bcrypt.compareSync(password, user.password)) {
 }
       
 ```
+![](../img/Mitigation/hashpassdw.png)
+
+---
 
 ### Session Hijacking
 In `routes/session.js` la funzione `handleLoginRequest()` non genera un nuovo id di sessione quando l'utente esegue l'accesso.
@@ -81,6 +87,8 @@ this.handleLoginRequest = (req, res, next) => {
 
 Un attaccante può sfruttare questa vulnerabilità provando a rubare il cookie con l'id di sessione e utilizzandolo per accedere all'applicazione senza dover inserire username e password.
 
+
+
 #### 🛡️ Mitigation
 ```js 
 req.session.regenerate(function() {
@@ -92,6 +100,8 @@ req.session.regenerate(function() {
 💡 **Spiegazione**:
 - ✅ in questo modo viene generato un nuovo session id ogni volta che l'utente esegue l'accesso.
 
+---
+
 ## A2 - 2 Password Guessing Attack
 Se la password non soddisfa dei requisiti minimi di lunghezza e complessità, un attaccante può eseguire un attacco brute force per password guessing oppure utilizzare tool per la generazione di password casuali.
 
@@ -100,17 +110,24 @@ In `routes/session.js` la funzione `validateSignup()` utilizza un regex troppo s
 ```js
 var PASS_RE = /^.{1,20}$/;
 ```
+
+
 #### 🛡️ Mitigation
 ```js 
-var PASS_RE =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+var PASS_RE =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,18}$/;
 ```
 💡 **Spiegazione**:
-- ✅ questo regex richiede che la password sia lunga almeno 8 caratteri e che contenga almeno un numero, una lettera minuscola e una lettera maiuscola. Quindi l'utente è costretto a fornire una password più difficile da indovinare.
+- ✅ questo regex richiede che la password sia lunga almeno tra 8 e 18 caratteri e che contenga almeno un numero, una lettera minuscola e una lettera maiuscola. Quindi l'utente è costretto a fornire una password più difficile da indovinare.
+
+![](../img/Mitigation/regexpsswd.png)
+
+---
 
 ### Username/Password Enumeration
 In `routes/session.js` la funzione [`handleLoginRequest()`](#session-hijacking) utilizza un messaggio d'errore diverso nel caso in cui è errato lo username o la password.
 Ma queste informazioni possono essere preziose per un attaccante che esegue brute forcing. 
 ![](../img/A2/A2-2.png)
+
 
 #### 🛡️ Mitigation
 ```js 
@@ -140,5 +157,7 @@ if (err) {
 💡 **Spiegazione**:
 - ✅ in questo modo si risolve facilmente il problema usando un messaggio di errore generico "Invalid username and/or password"
 
+![](../img/Mitigation/errorMessage.png)
 
-[🔙](01-as-is.md#a2---broken-authentication-and-session-management)
+<!--[🔙](01-as-is.md#a2---broken-authentication-and-session-management)-->
+[🔙](../README.md#a2---broken-authentication-and-session-management)
