@@ -1,5 +1,4 @@
-# ProgettoSS
-# 🧪 01 - OWASP NodeGoat 
+# ProgettoSS - OWASP NodeGoat 
 
 
 ## 🧩 Descrizione Generale
@@ -64,6 +63,31 @@ In particolare, le vulnerabilità presenti in questa applicazione fanno riferime
    ```
 
 5. Eseguire l'app, il punto di ingresso dell'applicazione è: http://localhost:4000/:
+   ```
+   docker-compose up
+   ```
+---
+
+## 🐋 Eseguire NodeGoatSecure con Docker
+
+1. Installare [docker](https://docs.docker.com/installation/) e [docker compose](https://docs.docker.com/compose/install/) 
+
+2. Clonare la repository github:
+   ```
+   git clone https://github.com/ClaudiaCastellano/ProgettoSS
+   ```
+
+3. Spostarsi nella directory:
+   ```
+   cd NodeGoatSecure
+   ```
+
+4. Eseguire la build delle immagini:
+   ```
+   docker-compose build
+   ```
+
+5. Eseguire l'app, il punto di ingresso dell'applicazione è: https://localhost:5000/:
    ```
    docker-compose up
    ```
